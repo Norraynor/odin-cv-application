@@ -1,4 +1,4 @@
-function Person() {
+function Personal() {
 	return (
 		<>
 			<div className="head">
@@ -12,4 +12,4 @@ function Person() {
 	);
 }
 
-export default Person;
+export default Personal;
