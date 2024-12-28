@@ -1,10 +1,11 @@
+/* eslint-disable react/prop-types */
 function CVForm(props) {
 	return (
 		<>
 			<div className="cv-form">
 				<h3>Please fill out your CV</h3>
-				<form action="">
-					<fieldset>
+				<form action="post" onSubmit={props.handleSave}>
+					<fieldset name="personal">
 						<legend>Personal Information</legend>
 						<label htmlFor="first-name">First Name:</label>
 						<input type="text" id="first-name" name="first-name" required />
@@ -15,9 +16,7 @@ function CVForm(props) {
 						<label htmlFor="phone">Phone:</label>
 						<input type="tel" id="phone" name="phone" required />
 					</fieldset>
-					<button type="submit" onClick={props.handleSave}>
-						SAVE
-					</button>
+					<button type="submit">SAVE</button>
 				</form>
 			</div>
 		</>
