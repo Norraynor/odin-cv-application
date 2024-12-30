@@ -10,37 +10,58 @@ function CV() {
 	const handleToggle = () => {
 		setToggle((prevToggle) => !prevToggle);
 	};
-	/*{
-	personal:{
-	    firstName: "John",
-        surname: "Doe",
-        email: "john.doe@example.com",
-        phone: "1234567890",
-    },
-	education:{
-	    degree: "Bachelor of Science, Computer Science",
-        institution: "University of Example",
-        startDate: "2015",
-        endDate: "2020",
-    },
-	experience:{
-	    position: "Software Developer",
-        company: "Company A",
-        startDate: "2020",
-        endDate: "Present",
-		details: [
-            "Built web applications using React and Node.js",
-            "Worked on various projects, including a project management tool",
-            "Worked on a mobile application using React Native",
-        ],}
-
-}*/
-	const [data, setData] = useState({});
+	const startData = {
+		personal: {
+			firstName: "John",
+			surname: "Doe",
+			email: "john.doe@example.com",
+			phone: "1234567890",
+		},
+		education: {
+			degree: "Bachelor of Science, Computer Science",
+			institution: "University of Example",
+			startDate: "2015",
+			endDate: "2020",
+		},
+		experience: {
+			position: "Software Developer",
+			company: "Company A",
+			startDate: "2020",
+			endDate: "Present",
+			details: [
+				"Built web applications using React and Node.js",
+				"Worked on various projects, including a project management tool",
+				"Worked on a mobile application using React Native",
+			],
+		},
+	};
+	const [data, setData] = useState(startData);
 	const handleSave = (e) => {
 		e.preventDefault();
 		console.log("Form submitted", e);
 		setToggle(false);
 		console.log(e.target["first-name"].value);
+		let newData = {
+			personal: {
+				firstName: e.target["first-name"].value,
+				surname: e.target["surname"].value,
+				email: e.target["email"].value,
+				phone: e.target["phone"].value,
+			},
+			education: {
+				degree: e.target["degree"].value,
+				institution: e.target["institution"].value,
+				startDate: e.target["start-edu"].value,
+				endDate: e.target["end-edu"].value,
+			},
+			experience: {
+				position: e.target["position"].value,
+				company: e.target["company"].value,
+				startDate: e.target["start-date"].value,
+				endDate: e.target["end-date"].value,
+			},
+		};
+		setData(newData);
 		// if personal then collect all inputs and save them to personal object of data etc
 		// Reset form fields
 		// const inputs = document.querySelectorAll("input");
@@ -72,7 +93,7 @@ function CV() {
 			<button className="edit" onClick={handleToggle}>
 				EDIT
 			</button>
-			<Personal />
+			<Personal data={data.personal} />
 			<Education />
 			<Experience />
 		</>
