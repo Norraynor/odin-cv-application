@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Personal from "./Personal";
 import Education from "./Education";
 import Experience from "./Experience";
@@ -36,6 +36,11 @@ function CV() {
 		},
 	};
 	const [data, setData] = useState(startData);
+
+	useEffect(() => {
+		console.log(data, "- Has changed");
+	}, [data]);
+
 	const handleSave = (e) => {
 		e.preventDefault();
 		console.log("Form submitted", e);
