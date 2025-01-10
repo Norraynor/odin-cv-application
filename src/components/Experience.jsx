@@ -1,22 +1,19 @@
-function Experience() {
+/* eslint-disable react/prop-types */
+function Experience(props) {
+	let position = props.data.position;
+	let company = props.data.company;
+	let startDate = props.data.startDate;
+	let endDate = props.data.endDate;
 	return (
 		<>
 			<div className="exp">
 				<h2>Work experience</h2>
 				<div className="card">
-					<h3>Software Developer</h3>
-					<p>Company A</p>
-					<p>2020-Present</p>
-					<ul>
-						<li>Built web applications using React and Node.js</li>
-						<li>
-							Worked on various projects, including a project management tool
-						</li>
-						<li>
-							Collaborated with team members to ensure high quality and
-							efficiency
-						</li>
-					</ul>
+					<h3>{position}</h3>
+					<p>{company}</p>
+					<p>
+						{startDate} - {endDate}
+					</p>
 				</div>
 			</div>
 		</>

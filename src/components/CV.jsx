@@ -99,8 +99,8 @@ function CV() {
 				EDIT
 			</button>
 			<Personal data={data.personal} />
-			<Education />
-			<Experience />
+			<Education data={data.education} />
+			<Experience data={data.experience} />
 		</>
 	);
 }

@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 function Personal(props) {
-	console.log(props, "personal");
 	let name = props.data.firstName + " " + props.data.surname;
 	let email = props.data.email;
 	let phone = props.data.phone;

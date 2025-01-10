@@ -39,6 +39,7 @@ function CVForm(props) {
 						<input type="date" id="start-date" name="start-date" required />
 						<label htmlFor="end-date">End:</label>
 						<input type="date" id="end-date" name="end-date" required />
+						<button>Add</button>
 					</fieldset>
 					<button type="submit">SAVE</button>
 					<button type="button" onClick={props.handleSave}>
