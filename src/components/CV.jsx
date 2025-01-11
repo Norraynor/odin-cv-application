@@ -23,17 +23,19 @@ function CV() {
 			startDate: "2015",
 			endDate: "2020",
 		},
-		experience: {
-			position: "Software Developer",
-			company: "Company A",
-			startDate: "2020",
-			endDate: "Present",
-			details: [
-				"Built web applications using React and Node.js",
-				"Worked on various projects, including a project management tool",
-				"Worked on a mobile application using React Native",
-			],
-		},
+		experience: [
+			{
+				position: "Software Developer",
+				company: "Company A",
+				startDate: "2020",
+				endDate: "Present",
+				// details: [
+				// 	"Built web applications using React and Node.js",
+				// 	"Worked on various projects, including a project management tool",
+				// 	"Worked on a mobile application using React Native",
+				// ],
+			},
+		],
 	};
 	const [data, setData] = useState(startData);
 
@@ -59,12 +61,14 @@ function CV() {
 				startDate: e.target["start-edu"].value,
 				endDate: e.target["end-edu"].value,
 			},
-			experience: {
-				position: e.target["position"].value,
-				company: e.target["company"].value,
-				startDate: e.target["start-date"].value,
-				endDate: e.target["end-date"].value,
-			},
+			experience: [
+				{
+					position: e.target["position"].value,
+					company: e.target["company"].value,
+					startDate: e.target["start-date"].value,
+					endDate: e.target["end-date"].value,
+				},
+			],
 		};
 		setData(newData);
 		// if personal then collect all inputs and save them to personal object of data etc
@@ -85,7 +89,7 @@ function CV() {
 	if (toggle) {
 		return (
 			<>
-				<CVForm handleSave={handleSave} />
+				<CVForm handleSave={handleSave} count={data.experience.length} />
 			</>
 		);
 	}
@@ -100,7 +104,7 @@ function CV() {
 			</button>
 			<Personal data={data.personal} />
 			<Education data={data.education} />
-			<Experience data={data.experience} />
+			<Experience data={data.experience[0]} />
 		</>
 	);
 }

@@ -1,5 +1,19 @@
 /* eslint-disable react/prop-types */
+import { useState } from "react";
+import FormExperience from "./FormExperience";
 function CVForm(props) {
+	const [count, setCount] = useState(props.count);
+	const [experience, setExperience] = useState([]);
+
+	function handleClick() {
+		setCount(count + 1);
+		let newArr = experience;
+		for (let i = newArr.length; i <= count; i++) {
+			newArr.push(<FormExperience key={i} />);
+			setExperience(newArr);
+		}
+	}
+
 	return (
 		<>
 			<div className="cv-form">
@@ -31,15 +45,11 @@ function CVForm(props) {
 
 					<fieldset name="experience">
 						<legend>Experience Information</legend>
-						<label htmlFor="position">Position:</label>
-						<input type="text" id="position" name="position" required />
-						<label htmlFor="company">Company:</label>
-						<input type="text" id="company" name="company" required />
-						<label htmlFor="start-date">Start:</label>
-						<input type="date" id="start-date" name="start-date" required />
-						<label htmlFor="end-date">End:</label>
-						<input type="date" id="end-date" name="end-date" required />
-						<button>Add</button>
+						{experience.map((exp) => (
+							<FormExperience key={exp.key} />
+						))}
+						<h4>{count}</h4>
+						<button onClick={handleClick}>Add</button>
 					</fieldset>
 					<button type="submit">SAVE</button>
 					<button type="button" onClick={props.handleSave}>
