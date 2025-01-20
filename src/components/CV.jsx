@@ -46,8 +46,11 @@ function CV() {
 	const handleSave = (e) => {
 		e.preventDefault();
 		console.log("Form submitted", e);
+		let formData = new FormData(e.target);
 		setToggle(false);
-		console.log(e.target["first-name"].value);
+		for (let d of formData) {
+			console.log(d);
+		}
 		let newData = {
 			personal: {
 				firstName: e.target["first-name"].value,
@@ -104,6 +107,7 @@ function CV() {
 			</button>
 			<Personal data={data.personal} />
 			<Education data={data.education} />
+			{console.log(data.experience)}
 			<Experience data={data.experience[0]} />
 		</>
 	);

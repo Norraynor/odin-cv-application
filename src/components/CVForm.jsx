@@ -3,7 +3,7 @@ import { useState } from "react";
 import FormExperience from "./FormExperience";
 function CVForm(props) {
 	const [count, setCount] = useState(props.count);
-	const [experience, setExperience] = useState([]);
+	const [experience, setExperience] = useState([<FormExperience key={0} />]);
 
 	function handleClick() {
 		setCount(count + 1);
@@ -48,7 +48,6 @@ function CVForm(props) {
 						{experience.map((exp) => (
 							<FormExperience key={exp.key} />
 						))}
-						<h4>{count}</h4>
 						<button onClick={handleClick}>Add</button>
 					</fieldset>
 					<button type="submit">SAVE</button>
