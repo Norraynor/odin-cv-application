@@ -3,13 +3,15 @@ import { useState } from "react";
 import FormExperience from "./FormExperience";
 function CVForm(props) {
 	const [count, setCount] = useState(props.count);
-	const [experience, setExperience] = useState([<FormExperience key={0} />]);
+	const [experience, setExperience] = useState([
+		<FormExperience key={0} num={0} />,
+	]);
 
 	function handleClick() {
 		setCount(count + 1);
 		let newArr = experience;
 		for (let i = newArr.length; i <= count; i++) {
-			newArr.push(<FormExperience key={i} />);
+			newArr.push(<FormExperience key={i} num={i} />);
 			setExperience(newArr);
 		}
 	}
@@ -46,7 +48,7 @@ function CVForm(props) {
 					<fieldset name="experience">
 						<legend>Experience Information</legend>
 						{experience.map((exp) => (
-							<FormExperience key={exp.key} />
+							<FormExperience key={exp.key} num={exp.key} />
 						))}
 						<button onClick={handleClick}>Add</button>
 					</fieldset>

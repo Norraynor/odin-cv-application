@@ -43,6 +43,29 @@ function CV() {
 		console.log(data, "- Has changed");
 	}, [data]);
 
+	// function createExperienceArray() {
+	// 	let expArr = [];
+	//     for (let i = 0; i < count; i++) {
+	//         expArr.push(
+	//             <Experience
+	//                 key={i}
+	//                 data={{
+	//                     position: e.target["position-" + i].value,
+	//                     company: e.target["company-" + i].value,
+	//                     startDate: e.target["start-date-" + i].value,
+	//                     endDate: e.target["end-date-" + i].value,
+	//                     // details: [
+	//                     //     e.target["detail-" + i + "-1"].value,
+	//                     //     e.target["detail-" + i + "-2"].value,
+	//                     //     e.target["detail-" + i + "-3"].value,
+	//                     // ],
+	//                 }}
+	//             />
+	//         );
+	//     }
+	//     return expArr;
+	// }
+
 	const handleSave = (e) => {
 		e.preventDefault();
 		console.log("Form submitted", e);
