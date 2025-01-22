@@ -15,6 +15,10 @@ function CVForm(props) {
 			setExperience(newArr);
 		}
 	}
+	function handleSubmit() {
+		props.setExpCount(count);
+		console.log(count);
+	}
 
 	return (
 		<>
@@ -52,7 +56,9 @@ function CVForm(props) {
 						))}
 						<button onClick={handleClick}>Add</button>
 					</fieldset>
-					<button type="submit">SAVE</button>
+					<button type="submit" onSubmit={handleSubmit}>
+						SAVE
+					</button>
 					<button type="button" onClick={props.handleSave}>
 						CANCEL
 					</button>

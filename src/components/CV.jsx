@@ -5,11 +5,8 @@ import Experience from "./Experience";
 import CVForm from "./CVForm";
 
 function CV() {
-	//const [count, setCount] = useState(0);
 	const [toggle, setToggle] = useState(false);
-	const handleToggle = () => {
-		setToggle((prevToggle) => !prevToggle);
-	};
+
 	const startData = {
 		personal: {
 			firstName: "John",
@@ -38,42 +35,45 @@ function CV() {
 		],
 	};
 	const [data, setData] = useState(startData);
-
+	const [expCount, setExpCount] = useState(
+		data.experience.length > 0 ? data.experience.length : 1
+	);
+	const handleToggle = () => {
+		setToggle((prevToggle) => !prevToggle);
+	};
 	useEffect(() => {
 		console.log(data, "- Has changed");
 	}, [data]);
 
-	// function createExperienceArray() {
-	// 	let expArr = [];
-	//     for (let i = 0; i < count; i++) {
-	//         expArr.push(
-	//             <Experience
-	//                 key={i}
-	//                 data={{
-	//                     position: e.target["position-" + i].value,
-	//                     company: e.target["company-" + i].value,
-	//                     startDate: e.target["start-date-" + i].value,
-	//                     endDate: e.target["end-date-" + i].value,
-	//                     // details: [
-	//                     //     e.target["detail-" + i + "-1"].value,
-	//                     //     e.target["detail-" + i + "-2"].value,
-	//                     //     e.target["detail-" + i + "-3"].value,
-	//                     // ],
-	//                 }}
-	//             />
-	//         );
-	//     }
-	//     return expArr;
-	// }
+	function createExperienceArray(formValue) {
+		console.log(formValue);
+		let expArr = [];
+		for (let i = 0; i < expCount; i++) {
+			expArr.push(
+				// <Experience
+				// 	key={i}
+				// 	data={{
+				// 		position: formValue.target["position-" + i].value,
+				// 		company: formValue.target["company-" + i].value,
+				// 		startDate: formValue.target["start-date-" + i].value,
+				// 		endDate: formValue.target["end-date-" + i].value,
+				// 	}}
+				// />
+				{
+					position: formValue.target["position" + i].value,
+					company: formValue.target["company" + i].value,
+					startDate: formValue.target["start-date" + i].value,
+					endDate: formValue.target["end-date" + i].value,
+				}
+			);
+		}
+		return expArr;
+	}
 
 	const handleSave = (e) => {
 		e.preventDefault();
 		console.log("Form submitted", e);
-		let formData = new FormData(e.target);
 		setToggle(false);
-		for (let d of formData) {
-			console.log(d);
-		}
 		let newData = {
 			personal: {
 				firstName: e.target["first-name"].value,
@@ -87,14 +87,7 @@ function CV() {
 				startDate: e.target["start-edu"].value,
 				endDate: e.target["end-edu"].value,
 			},
-			experience: [
-				{
-					position: e.target["position"].value,
-					company: e.target["company"].value,
-					startDate: e.target["start-date"].value,
-					endDate: e.target["end-date"].value,
-				},
-			],
+			experience: createExperienceArray(e),
 		};
 		setData(newData);
 		// if personal then collect all inputs and save them to personal object of data etc
@@ -115,7 +108,11 @@ function CV() {
 	if (toggle) {
 		return (
 			<>
-				<CVForm handleSave={handleSave} count={data.experience.length} />
+				<CVForm
+					handleSave={handleSave}
+					count={data.experience.length}
+					setExpCount={setExpCount}
+				/>
 			</>
 		);
 	}
@@ -131,7 +128,10 @@ function CV() {
 			<Personal data={data.personal} />
 			<Education data={data.education} />
 			{console.log(data.experience)}
-			<Experience data={data.experience[0]} />
+
+			{data.experience.map((exp, index) => (
+				<Experience key={index} data={exp} />
+			))}
 		</>
 	);
 }
