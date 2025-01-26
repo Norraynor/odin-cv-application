@@ -7,7 +7,6 @@ function Experience(props) {
 	return (
 		<>
 			<div className="exp">
-				<h2>Work experience</h2>
 				<div className="card">
 					<h3>{position}</h3>
 					<p>{company}</p>

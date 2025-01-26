@@ -6,18 +6,13 @@ function CVForm(props) {
 	const [experience, setExperience] = useState([
 		<FormExperience key={0} num={0} />,
 	]);
-
 	function handleClick() {
 		setCount(count + 1);
-		let newArr = experience;
+		let newArr = [...experience];
 		for (let i = newArr.length; i <= count; i++) {
 			newArr.push(<FormExperience key={i} num={i} />);
 			setExperience(newArr);
 		}
-	}
-	function handleSubmit() {
-		props.setExpCount(count);
-		console.log(count);
 	}
 
 	return (
@@ -56,12 +51,11 @@ function CVForm(props) {
 						))}
 						<button onClick={handleClick}>Add</button>
 					</fieldset>
-					<button type="submit" onSubmit={handleSubmit}>
-						SAVE
-					</button>
+					<button type="submit">SAVE</button>
 					<button type="button" onClick={props.handleSave}>
 						CANCEL
 					</button>
+					<input type="hidden" name="count" id="count" value={count} />
 				</form>
 			</div>
 		</>

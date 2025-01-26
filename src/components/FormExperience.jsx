@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import "./FormExperience.css";
 function FormExperience(props) {
+	console.log(props);
 	return (
 		<>
 			<div className="exp-card">
