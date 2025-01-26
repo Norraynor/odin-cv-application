@@ -11,6 +11,7 @@ function FormExperience(props) {
 					id={"position" + props.num}
 					name={"position" + props.num}
 					required
+					value={props.data?.position}
 				/>
 				<label htmlFor={"company" + props.num}>Company:</label>
 				<input
@@ -18,6 +19,7 @@ function FormExperience(props) {
 					id={"company" + props.num}
 					name={"company" + props.num}
 					required
+					value={props.data?.company}
 				/>
 				<label htmlFor={"start-date" + props.num}>Start:</label>
 				<input
@@ -25,6 +27,7 @@ function FormExperience(props) {
 					id={"start-date" + props.num}
 					name={"start-date" + props.num}
 					required
+					value={props.data?.startDate}
 				/>
 				<label htmlFor={"end-date" + props.num}>End:</label>
 				<input
@@ -32,6 +35,7 @@ function FormExperience(props) {
 					id={"end-date" + props.num}
 					name={"end-date" + props.num}
 					required
+					value={props.data?.endDate}
 				/>
 			</div>
 		</>

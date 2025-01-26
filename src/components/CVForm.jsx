@@ -23,31 +23,83 @@ function CVForm(props) {
 					<fieldset name="personal">
 						<legend>Personal Information</legend>
 						<label htmlFor="first-name">First Name:</label>
-						<input type="text" id="first-name" name="first-name" required />
+						<input
+							type="text"
+							id="first-name"
+							name="first-name"
+							required
+							value={props.data.personal.firstName}
+						/>
 						<label htmlFor="surname">Surname:</label>
-						<input type="text" id="surname" name="surname" required />
+						<input
+							type="text"
+							id="surname"
+							name="surname"
+							required
+							value={props.data.personal.surname}
+						/>
 						<label htmlFor="email">Email:</label>
-						<input type="email" id="email" name="email" required />
+						<input
+							type="email"
+							id="email"
+							name="email"
+							required
+							value={props.data.personal.email}
+						/>
 						<label htmlFor="phone">Phone:</label>
-						<input type="tel" id="phone" name="phone" required />
+						<input
+							type="tel"
+							id="phone"
+							name="phone"
+							required
+							value={props.data.personal.phone}
+						/>
 					</fieldset>
 
 					<fieldset name="education">
 						<legend>Education Information</legend>
 						<label htmlFor="degree">Degree:</label>
-						<input type="text" id="degree" name="degree" required />
+						<input
+							type="text"
+							id="degree"
+							name="degree"
+							required
+							value={props.data.education.degree}
+						/>
 						<label htmlFor="institution">Institution:</label>
-						<input type="text" id="institution" name="institution" required />
+						<input
+							type="text"
+							id="institution"
+							name="institution"
+							required
+							value={props.data.education.institution}
+						/>
 						<label htmlFor="start-edu">Start:</label>
-						<input type="date" id="start-edu" name="start-edu" required />
+						<input
+							type="date"
+							id="start-edu"
+							name="start-edu"
+							required
+							value={props.data.education.startDate}
+						/>
 						<label htmlFor="end-edu">End:</label>
-						<input type="date" id="end-edu" name="end-edu" required />
+						<input
+							type="date"
+							id="end-edu"
+							name="end-edu"
+							required
+							value={props.data.education.endDate}
+						/>
 					</fieldset>
 
 					<fieldset name="experience">
 						<legend>Experience Information</legend>
 						{experience.map((exp) => (
-							<FormExperience key={exp.key} num={exp.key} />
+							<FormExperience
+								key={exp.key}
+								num={exp.key}
+								data={props.data.experience[exp.key]}
+							/>
 						))}
 						<button onClick={handleClick}>Add</button>
 					</fieldset>

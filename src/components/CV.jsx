@@ -106,7 +106,11 @@ function CV() {
 	if (toggle) {
 		return (
 			<>
-				<CVForm handleSave={handleSave} count={data.experience.length} />
+				<CVForm
+					handleSave={handleSave}
+					count={data.experience.length}
+					data={data}
+				/>
 			</>
 		);
 	}
