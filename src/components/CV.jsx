@@ -17,15 +17,16 @@ function CV() {
 		education: {
 			degree: "Bachelor of Science, Computer Science",
 			institution: "University of Example",
-			startDate: "2015",
-			endDate: "2020",
+			startDate: "2015-01",
+			endDate: "2020-10",
 		},
 		experience: [
 			{
 				position: "Software Developer",
 				company: "Company A",
-				startDate: "2020",
-				endDate: "Present",
+				startDate: "2020-05",
+				endDate: "2024-09",
+				current: false,
 				// details: [
 				// 	"Built web applications using React and Node.js",
 				// 	"Worked on various projects, including a project management tool",
@@ -60,7 +61,10 @@ function CV() {
 					position: formValue.target["position" + i].value,
 					company: formValue.target["company" + i].value,
 					startDate: formValue.target["start-date" + i].value,
-					endDate: formValue.target["end-date" + i].value,
+					endDate: !formValue.target["current" + i].value
+						? "present"
+						: formValue.target["end-date" + i].value,
+					current: formValue.target["current" + i].value,
 				}
 			);
 		}

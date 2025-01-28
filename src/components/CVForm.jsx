@@ -28,7 +28,7 @@ function CVForm(props) {
 							id="first-name"
 							name="first-name"
 							required
-							value={props.data.personal.firstName}
+							defaultValue={props.data.personal.firstName}
 						/>
 						<label htmlFor="surname">Surname:</label>
 						<input
@@ -36,7 +36,7 @@ function CVForm(props) {
 							id="surname"
 							name="surname"
 							required
-							value={props.data.personal.surname}
+							defaultValue={props.data.personal.surname}
 						/>
 						<label htmlFor="email">Email:</label>
 						<input
@@ -44,7 +44,7 @@ function CVForm(props) {
 							id="email"
 							name="email"
 							required
-							value={props.data.personal.email}
+							defaultValue={props.data.personal.email}
 						/>
 						<label htmlFor="phone">Phone:</label>
 						<input
@@ -52,7 +52,7 @@ function CVForm(props) {
 							id="phone"
 							name="phone"
 							required
-							value={props.data.personal.phone}
+							defaultValue={props.data.personal.phone}
 						/>
 					</fieldset>
 
@@ -64,7 +64,7 @@ function CVForm(props) {
 							id="degree"
 							name="degree"
 							required
-							value={props.data.education.degree}
+							defaultValue={props.data.education.degree}
 						/>
 						<label htmlFor="institution">Institution:</label>
 						<input
@@ -72,23 +72,23 @@ function CVForm(props) {
 							id="institution"
 							name="institution"
 							required
-							value={props.data.education.institution}
+							defaultValue={props.data.education.institution}
 						/>
 						<label htmlFor="start-edu">Start:</label>
 						<input
-							type="date"
+							type="month"
 							id="start-edu"
 							name="start-edu"
 							required
-							value={props.data.education.startDate}
+							defaultValue={props.data.education.startDate}
 						/>
 						<label htmlFor="end-edu">End:</label>
 						<input
-							type="date"
+							type="month"
 							id="end-edu"
 							name="end-edu"
 							required
-							value={props.data.education.endDate}
+							defaultValue={props.data.education.endDate}
 						/>
 					</fieldset>
 

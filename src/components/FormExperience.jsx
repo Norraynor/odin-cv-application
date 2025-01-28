@@ -11,7 +11,7 @@ function FormExperience(props) {
 					id={"position" + props.num}
 					name={"position" + props.num}
 					required
-					value={props.data?.position}
+					defaultValue={props.data?.position}
 				/>
 				<label htmlFor={"company" + props.num}>Company:</label>
 				<input
@@ -19,23 +19,29 @@ function FormExperience(props) {
 					id={"company" + props.num}
 					name={"company" + props.num}
 					required
-					value={props.data?.company}
+					defaultValue={props.data?.company}
 				/>
 				<label htmlFor={"start-date" + props.num}>Start:</label>
 				<input
-					type="date"
+					type="month"
 					id={"start-date" + props.num}
 					name={"start-date" + props.num}
 					required
-					value={props.data?.startDate}
+					defaultValue={props.data?.startDate}
 				/>
 				<label htmlFor={"end-date" + props.num}>End:</label>
 				<input
-					type="date"
+					type="month"
 					id={"end-date" + props.num}
 					name={"end-date" + props.num}
-					required
-					value={props.data?.endDate}
+					defaultValue={props.data?.endDate}
+				/>
+				<label htmlFor={"current" + props.num}>current:</label>
+				<input
+					type="checkbox"
+					id={"current" + props.num}
+					name={"current" + props.num}
+					defaultValue={props.data?.current}
 				/>
 			</div>
 		</>
